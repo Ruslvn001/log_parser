@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Search</title>
+</head>
+<body>
+    <h1>Log Search</h1>
+    <form action="/search" method="post">
+        <input type="text" name="address" placeholder="Enter recipient address" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h2>Results:</h2>
+        <ul>
+            {% for result in results %}
+                <li>{{ result.created }} - {{ result.str }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
